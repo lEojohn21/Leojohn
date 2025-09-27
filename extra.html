@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 9th Monthsary ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Romantic Theme */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Starry Night Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: twinkle 4s linear infinite;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5em;
+            color: #ff6b9d;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 10px #ff6b9d; }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 20px #ff6b9d; }
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #666;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-button {
+            background: rgba(255, 107, 157, 0.8);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-button:hover {
+            background: #ff6b9d;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Sections */
+        section {
+            display: none;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #timeline { display: block; } /* Default visible */
+
+        /* Timeline Section */
+        .timeline {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .month-item {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            padding: 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .month-item:hover {
+            transform: scale(1.1);
+            background: #ff6b9d;
+            color: white;
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .month-message {
+            display: none;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* I Love You Floating Text */
+        .love-text {
+            position: absolute;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
+            color: #ff6b9d;
+            pointer-events: none;
+            z-index: 999;
+            animation: floatUp 3s ease-out forwards;
+        }
+
+        @keyframes floatUp {
+            0% { opacity: 0; transform: translateY(0) scale(0); }
+            10% { opacity: 1; transform: translateY(0) scale(1); }
+            90% { opacity: 1; transform: translateY(-100px) scale(1); }
+            100% { opacity: 0; transform: translateY(-150px) scale(0.5); }
+        }
+
+        /* Music Player Section */
+        #music-player {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .song-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .song-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .song-item:hover {
+            background: rgba(255, 107, 157, 0.3);
+            transform: translateX(5px);
+        }
+
+        .song-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        .song-info h3 { margin: 0; color: #ff6b9d; }
+        .song-info p { margin: 0; color: #666; font-size: 0.9em; }
+
+        audio { width: 100%; margin-top: 20px; }
+
+        /* Pictures & Video Section */
+        #pictures-video {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .photo-item {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .photo-item.selected img {
+            transform: scale(1.1);
+            z-index: 10;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.5);
+        }
+
+        .photo-item:not(.selected) {
+            filter: brightness(0.7);
+            z-index: 1;
+        }
+
+        /* Carousel */
+        .carousel-container {
+            perspective: 1000px;
+            height: 300px;
+            margin: 40px 0;
+        }
+
+        .carousel {
+            width: 200px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+
+        .carousel-item {
+            position: absolute;
+            width: 150px;
+            height: 200px;
+            left: 25px;
+            top: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .carousel-item:nth-child(1) { transform: rotateY(0deg) translateZ(200px); }
+        .carousel-item:nth-child(2) { transform: rotateY(60deg) translateZ(200px); }
+        .carousel-item:nth-child(3) { transform: rotateY(120deg) translateZ(200px); }
+        .carousel-item:nth-child(4) { transform: rotateY(180deg) translateZ(200px); }
+        .carousel-item:nth-child(5) { transform: rotateY(240deg) translateZ(200px); }
+        .carousel-item:nth-child(6) { transform: rotateY(300deg) translateZ(200px); }
+
+        /* Videos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .video-frame {
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-frame video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Letter Section */
+        #letter {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .letter-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-height: 200px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #ff6b9d;
+            border-radius: 10px;
+            padding: 15px;
+            font-family: 'Playfair Display', serif;
+            resize: vertical;
+        }
+
+        button.save-letter {
+            background: #ff6b9d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5em; }
+            .timeline { flex-direction: column; align-items: center; }
+            .carousel { width: 150px; height: 250px; }
+            .carousel-item { width: 120px; height: 160px; left: 15px; top: 45px; }
+            .nav-buttons {
+                top: 10px;
+                right: 10px;
+            }
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Happy 9th Months, love love ❤️</h1>
+        <p>Happy 9th Month love, I’m so grateful to have you in my life. Ikaw kasi yung girl I’ve always dreamed of, and now that you’re mine, I feel complete. Totoo pala ‘yung sinabi ni Sir na when you meet your soulmate, your half soul will be complete. From the moment we started this unforgettable journey, everything has been so special. Thank you for still loving and caring for me kahit minsan makulit ako, HEHE. Kapit lang tayo, ha? Mahaba-haba pa ang lalakbayin natin, but I believe we can surpass anything as long as we’re together. Wala akong ibang source of strength kundi ikaw. We still have so many things to do and so many achievements to celebrate—both the ones we already have and the ones we’re yet to reach. I love you so much, always and </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-buttons">
+        <button class="nav-button" id="musicBtn">🎵 Music</button>
+        <button class="nav-button" id="picturesBtn">🖼️ Pictures</button>
+        <button class="nav-button" id="letterBtn">💌 Letter</button>
+        <button class="nav-button" id="timelineBtn">📅 Timeline</button>
+    </div>
+
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <h2 style="text-align: center; color: #ff6b9d; font-family: 'Dancing Script', cursive; font-size: 2.5em;">Our Months Together</h2>
+        <div class="timeline">
+            <div class="month-item" onclick="showMessage(1)">First Month</div>
+            <div class="month-item" onclick="showMessage(2)">Second Month</div>
+            <div class="month-item" onclick="showMessage(3)">Third Month</div>
+            <div class="month-item" onclick="showMessage(4)">Fourt Month</div>
+            <div class="month-item" onclick="showMessage(5)">Fifth Month</div>
+            <div class="month-item" onclick="showMessage(6)">Sixth Month</div>
+            <div class="month-item" onclick="showMessage(7)">Seventh Month</div>
+            <div class="month-item" onclick="showMessage(8)">Eigth Month</div>
+            <div class="month-item" onclick="showMessage(9)">Ninth Month</div>
+        </div>
+        <div id="message-display" class="month-message">Click on a month to see our memory</div>
+    </section>
+
+    <!-- Music Player Section -->
+    <section id="music-player">
+        <h2 style="text-align: center; color: #ff6b9d; font-family: 'Dancing Script', cursive; font-size: 2.5em;">Our Playlist ❤️</h2>
+        <div class="song-list">
+            <div class="song-item" onclick="playSong(0)">
+                <img src="ai.jpeg" alt="Yannie album cover with romantic theme">
+                <div class="song-info">
+                    <h3>Dalangin</h3>
+                    <p>Earl Agustine</p>
+                </div>
+            </div>
+            <div class="song-item" onclick="playSong(1)">
+                <img src="black.jpeg" alt="Yannie album cover classic style">
+                <div class="song-info">
+                    <h3>The Only Exception</h3>
+                    <p>Paramore</p>
+                </div>
+            </div>
+            <div class="song-item" onclick="playSong(2)">
+                <img src="iwannabeyours.png" alt="Yannie album cover piano theme">
+                <div class="song-info">
+                    <h3>We Belong Together</h3>
+                    <p>Mariah Carey</p>
+                </div>
+            </div>
+            <div class="song-item" onclick="playSong(3)">
+                <img src="cutepose.jpeg" alt="Yannie album artwork">
+                <div class="song-info">
+                    <h3>Sanctuary</h3>
+                    <p>Joji</p>
+                </div>
+            </div>
+            <div class="song-item" onclick="playSong(4)">
+                <img src="e.jpeg" alt="Etta James classic jazz album">
+                <div class="song-info">
+                    <h3>Fallin'</h3>
+                    <p>Janno Gibbs</p>
+                </div>
+            </div>
+            <div class="song-item" onclick="playSong(5)">
+                <img src="l.png" alt="Jason Derulo modern pop album">
+                <div class="song-info">
+                    <h3>Tahanan</h3>
+                    <p>Adie</p>
+                </div>
+            </div>
+            <div class="song-item" onclick="playSong(6)">
+                <img src="m.jpeg" alt="Christina Perri romantic ballad album">
+                <div class="song-info">
+                    <h3>One in a Million</h3>
+                    <p>Ne yo</p>
+                </div>
+            </div>
+            <div class="song-item" onclick="playSong(7)">
+                <img src="a.png" alt="Bruno Mars modern love songs album">
+                <div class="song-info">
+                    <h3>Just the Way You Are - Bruno Mars</h3>
+                    <p>Bruno Mars</p>
+                </div>
+            </div>
+            <div class="song-item" onclick="playSong(8)">
+                <img src="mnu.jpeg" alt="The Beatles classic album cover">
+                <div class="song-info">
+                    <h3>My Favorite Song</h3>
+                    <p>Yannie</p>
+                </div>
+            </div>
+        </div>
+        <audio id="audio-player" controls></audio>
+    </section>
+
+    <!-- Pictures & Video Section -->
+    <section id="pictures-video">
+        <h2 style="text-align: center; color: #ff6b9d; font-family: 'Dancing Script', cursive; font-size: 2.5em;">Our Memories ❤️</h2>
+        
+        <div class="photo-grid">
+            <div class="photo-item" onclick="selectPhoto(this)">
+                <img src="e.jpeg" alt="Couple watching sunset together with romantic lighting">
+            </div>
+            <div class="photo-item" onclick="selectPhoto(this)">
+                <img src="m.jpeg" alt="Couple holding hands walking through a beautiful park">
+            </div>
+            <div class="photo-item" onclick="selectPhoto(this)">
+                <img src="nn.png" alt="Couple celebrating anniversary with candles and flowers">
+            </div>
+            <div class="photo-item" onclick="selectPhoto(this)">
+                <img src="pflowrr.jpeg" alt="Couple embracing on a beach during golden hour">
+            </div>
+        </div>
+
+        <h3 style="text-align: center; color: #ff6b9d;">Special Carousel for My Special Person🌷</h3>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="ackkk.jpeg" alt="Couple on their first date at a cozy restaurant">
+                </div>
+                <div class="carousel-item">
+                    <img src="gandamo.jpeg" alt="Couple traveling together with beautiful mountain backdrop">
+                </div>
+                <div class="carousel-item">
+                    <img src="apakacute.jpeg" alt="Couple sharing laughter in a sunny field">
+                </div>
+                <div class="carousel-item">
+                    <img src="loveit.jpeg" alt="Couple cooking together in a cozy kitchen">
+                </div>
+                <div class="carousel-item">
+                    <img src="lovelove.jpeg" alt="Couple stargazing on a clear night">
+                </div>
+                <div class="carousel-item">
+                    <img src="shocked.jpeg" alt="Couple dancing together under fairy lights">
+                </div>
+              </div>
+        </div>
+        <h3 style="text-align: center; color: #ff6b9d; margin-top: 60px;">My most favorite video of yours 💓</h3>
+        <div class="video-grid">
+            <div class="video-frame">
+                <video controls poster="M.jpg">
+                    <source src="smile.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-frame">
+                <video controls poster="A.jpg">
+                    <source src="d.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-frame">
+                <video controls poster="R.jpg">
+                    <source src="i.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-frame">
+                <video controls poster="ii.jpg">
+                    <source src="v.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-frame">
+                <video controls poster="aa.jpg">
+                    <source src="bicep.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Letter Section -->
+    <section id="letter">
+        <h2 style="text-align: center; color: #ff6b9d; font-family: 'Dancing Script', cursive; font-size: 2.5em;">Letters of Love ❤️</h2>
+        
+        <div class="letter-content">
+            <h3>My Letter to You</h3>
+            <p>My Love love,</p>
+            <p>From the moment we started this journey, life has never been the same. Who would have thought that even without seeing each other in person yet, I would already feel this much love, comfort and happiness. Every chat, every call, and even the simplest “good morning” from you means the world to me.</p>
+
+            <p>You’ve become my safe place, my constant source of joy, and the one person I always look forward to talking to. Kahit hindi pa tayo nagkakasama, I know in my heart that what we have is real. Distance may separate us physically, but it never stopped us from building memories, laughter, and unforgettable moments.</p>
+
+            <p>Thank you, love, for choosing me every day. For your patience when I get makulit, for your care that I can feel even through the screen, and for the love that never fails to reach me no matter how far we are. You’ve shown me that true love doesn’t wait for perfect circumstances, it grows in every little effort, every promise, and every heartbeat that says, “I’m yours.”</p>
+
+            <p>I can’t wait for the day we’ll finally meet and turn all these dreams into reality. But until then, kapit lang tayo, love. We still have a long journey ahead, and I know we’ll surpass everything as long as we’re together. You are my strength, my happiness, and my greatest blessing.</p>
+
+            <p>I love you more than words could ever explain, and I’ll keep loving you, today, tomorrow, and for all the days to come.</p>
+            <p>With all my love,</p>
+            <p>Your Leilei💋🌷</p>
+        </div>
+        
+        <h3>Write Your Own Letter</h3>
+        <textarea id="custom-letter" placeholder="Write your love letter here..."></textarea>
+        <button class="save-letter" onclick="saveLetter()">Save Letter</button>
+        
+        <div id="her-letter" class="letter-content" style="margin-top: 30px; display: none;">
+            <h3>Your Letter To Him</h3>
+            <p id="her-letter-content"></p>
+        </div>
+    </section>
+    
+<script>
+        // Section Navigation
+        document.getElementById('musicBtn').addEventListener('click', function() {
+            showSection('music-player');
+        });
+        
+        document.getElementById('picturesBtn').addEventListener('click', function() {
+            showSection('pictures-video');
+        });
+        
+        document.getElementById('letterBtn').addEventListener('click', function() {
+            showSection('letter');
+        });
+        
+        document.getElementById('timelineBtn').addEventListener('click', function() {
+            showSection('timeline');
+        });
+        
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+        
+        // Timeline Messages
+        function showMessage(month) {
+            const messages = {
+                1: "Love, our first month together will always be unforgettable. The excitement of finally calling you yannie, the late-night talks, and the butterflies I felt every time we chatted. Everything felt so new, yet so perfect. That’s when I knew this journey would be something special.",
+                2: "The second month was filled with laughter and little discoveries about each other. I remember how we enjoyed even the simplest things, like kwentuhan or kulitan. It’s amazing how quickly you became such a big part of my everyday life. That was when I realized, hindi na kumpleto ang araw ko without you.",
+                3: "Our third month was unforgettable because of the comfort we started to build. We weren’t just lovers, we became best friends too. You saw my imperfections, and still, you stayed. That kind of pure love, patient, and genuine will always be a memory I’ll carry with me.",
+                4: "Our fourth month was unforgettable because kahit hindi pa tayo nagkikita, we already built so many memories together. Yung late night calls, simple good mornings and good nights, at yung mga pangungulit natin sa isa’t isa, lahat ng ‘yon sobrang special para sa’kin. It made me realize that true connection doesn’t always need physical presence, sometimes, love is felt deeply kahit sa mga maliliit na paraan lang.",
+                5: "fifth months with you, and it already felt like forever in the best way. I’ll never forget the feeling of looking back at how far we’ve come from strangers to lovers, from dreams to reality. This was the time I knew that this isn’t just a phase, it’s something I want to last.",
+                6: "Our sixth month was another unforgettable chapter. We faced small challenges, little misunderstandings, but instead of breaking us, it made us stronger. We proved to ourselves that love is not just about happiness, but also about choosing each other even in the not-so-easy moments.",
+                7: "Our seventh month was unforgettable because of how much deeper our bond grew. We shared more stories, dreams and even plans for the future. You became not just my partner (ket wala pa HEHEHE), but my strength and my safe place. Every day with you felt like a promise of tomorrow.",
+                8: "Eight months together, love, and it felt surreal. I’ll never forget how you made me feel loved not just in words, but in actions. You made me believe that true love exists and that I’ve found it in you. You’re not just part of my journey, you’re the journey itself.",
+                9: "And now, nine months of unforgettable moments. From the first time I called you mine up to now, it’s been a beautiful ride. Thank you for still holding my hand, for choosing me every day and for making me the happiest person. This may be our 9th month, but I know we have countless more memories to create, I love you."
+            };
+            
+            const messageDisplay = document.getElementById('message-display');
+            messageDisplay.innerHTML = `<h3>Month ${month}</h3><p>${messages[month]}</p>`;
+            messageDisplay.style.display = 'block';
+        }
+        
+      // Music Player
+const songs = [
+    { src: "daangin.mp3", title: "Dalangin", artist: "Earl Agustin" },
+    { src: "theonlyexception.mp3", title: "The Only Exception", artist: "Palamore" },
+    { src: "webelongtogether.mp3", title: "We Belong Together", artist: "Mariah Carey" },
+    { src: "sanctuary.mp3", title: "Sanctuary", artist: "Joji" },
+    { src: "fallin.mp3", title: "Fallin'", artist: "Janno Gibbs" },
+    { src: "tahanan.mp3", title: "Tahanan", artist: "Adie" },
+    { src: "neyo.mp3", title: "One in a Milliom", artist: "Ne yo" },
+    { src: "brunojtw.mp3", title: "Just the Way You Are", artist: "Bruno Mars" },
+    { src: "hervoice.m4a", title: "My Favorite Song", artist: "Yannie" }
+];
+let currentIndex = 0;
+
+function playSong(index) {
+    if (index < 0 || index >= songs.length) return; // Prevent invalid index
+    
+    const audioPlayer = document.getElementById('audio-player');
+    const nowPlaying = document.getElementById('now-playing');
+    
+    // Set the source to the actual MP3 file
+    audioPlayer.src = songs[index].src;
+    audioPlayer.load(); // Load the new source
+    audioPlayer.play().catch(error => {
+        console.error('Error playing audio:', error); // For debugging
+        alert('Could not play the song. Make sure the MP3 file is in the correct folder and browser allows autoplay.');
+    });
+    
+    // Update now playing display
+    nowPlaying.textContent = `Now Playing: ${songs[index].title} - ${songs[index].artist} ❤️`;
+    
+    currentIndex = index; // Update current index
+}
+
+function nextSong() {
+    currentIndex = (currentIndex + 1) % songs.length;
+    playSong(currentIndex);
+}
+
+function prevSong() {
+    currentIndex = (currentIndex - 1 + songs.length) % songs.length;
+    playSong(currentIndex);
+}
+
+// Optional: Auto-play next song when current ends
+document.getElementById('audio-player').addEventListener('ended', function() {
+    nextSong();
+});
+   
+        // Photo Selection
+        function selectPhoto(element) {
+            // Remove selected class from all photos
+            document.querySelectorAll('.photo-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked photo
+            element.classList.add('selected');
+        }
+        
+        // Letter Saving
+        function saveLetter() {
+            const letterContent = document.getElementById('custom-letter').value;
+            if (letterContent.trim() !== "") {
+                document.getElementById('her-letter-content').textContent = letterContent;
+                document.getElementById('her-letter').style.display = 'block';
+                alert("Letter saved! ❤️");
+            } else {
+                alert("Please write something in your letter!");
+            }
+        }
+        
+        // I Love You Popup
+        document.addEventListener('click', function(e) {
+            // Don't create popup if clicking on navigation buttons
+            if (e.target.classList.contains('nav-button')) return;
+            
+            createLoveText(e.clientX, e.clientY);
+        });
+        
+        function createLoveText(x, y) {
+            const loveText = document.createElement('div');
+            loveText.className = 'love-text';
+            loveText.textContent = 'I love you';
+            loveText.style.left = `${x}px`;
+            loveText.style.top = `${y}px`;
+            
+            document.body.appendChild(loveText);
+            
+            // Remove after animation completes
+            setTimeout(() => {
+                document.body.removeChild(loveText);
+            }, 3000);
+        }
+        
+        // Initialize with timeline showing
+        showSection('timeline');
+    </script>
+</body>
+</html>
